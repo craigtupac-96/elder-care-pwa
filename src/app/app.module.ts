@@ -7,12 +7,20 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
+import { DiaryComponent } from './diary/diary.component';
+import { RemindersComponent } from './reminders/reminders.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    AppointmentsComponent,
+    DiaryComponent,
+    RemindersComponent
   ],
   imports: [
     BrowserModule,

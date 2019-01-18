@@ -5,17 +5,14 @@
 
 .navbar li a{
   color: white;
+  margin-right: 2rem;
+  text-align: center;
 }
 
 .navbar li a:hover{
   background-color: white;
   color: #12aa95;
   border-radius: .2rem;
-}
-
-.navbar li a.active{
-  background-color: white;
-  color: #12aa95;
 }
 
 .navbar-brand {
