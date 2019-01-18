@@ -1,0 +1,31 @@
+.navbar{
+  background-color: #12aa95;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.navbar li a{
+  color: white;
+}
+
+.navbar li a:hover{
+  background-color: white;
+  color: #12aa95;
+  border-radius: .2rem;
+}
+
+.navbar li a.active{
+  background-color: white;
+  color: #12aa95;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 1.9rem;
+  font-weight: normal;/*removes bold*/
+  letter-spacing: 3.5px;/*spaces out leters nicely*/
+}
+
+a {
+  color: #aaa;
+  font-weight: 200;
+}
