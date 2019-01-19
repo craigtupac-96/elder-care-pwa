@@ -8,6 +8,8 @@ import { environment } from '../environments/environment';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { DiaryComponent } from './diary/diary.component';
 import { RemindersComponent } from './reminders/reminders.component';
@@ -18,6 +20,8 @@ import { RemindersComponent } from './reminders/reminders.component';
     NavComponent,
     FooterComponent,
     HomeComponent,
+    SignupComponent,
+    LoginComponent,
     AppointmentsComponent,
     DiaryComponent,
     RemindersComponent
