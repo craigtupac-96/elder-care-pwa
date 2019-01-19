@@ -1,10 +1,6 @@
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 3.5rem;
-  line-height: 3.5rem;
   background-color: #333;
+  padding: 2rem 0 1rem 0;
 }
 
 .left-col{
@@ -13,8 +9,6 @@
 
 .dateBox{
   background-color: #12aa95;
-  padding: 0;
-  margin: 0;
   text-align: center;
 }
 

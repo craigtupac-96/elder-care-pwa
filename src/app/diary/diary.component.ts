@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./diary.component.css']
 })
 export class DiaryComponent implements OnInit {
+  title = 'Diary';
 
   constructor() { }
 

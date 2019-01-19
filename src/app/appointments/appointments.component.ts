@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appointments.component.css']
 })
 export class AppointmentsComponent implements OnInit {
+  title = 'Appointments & Events';
 
   constructor() { }
 
