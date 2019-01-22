@@ -10,12 +10,6 @@ input::placeholder{
   color: #aaaaaa;
 }
 
-.content{
-  margin: 0 auto;
-  width: 45rem;
-  border: 1px solid black;
-}
-
 .form-btn {
   color: #FFFFFF;
   background-color: #7BDBC0;
@@ -36,6 +30,11 @@ input::placeholder{
   color: #FFFFFF;
   background-color: #06BD89;
   border-color: #FFFFFF;
+}
+
+#signupScreen{
+  margin-top: 2rem;
+  margin-bottom: 5rem;
 }
 
 

@@ -2,6 +2,10 @@ html, body{
   background-color: #333;
 }
 
+form{
+  padding: 1.5rem;
+}
+
 .headings{
   font-family: 'Julius Sans One', sans-serif;
   font-weight: normal;
@@ -11,6 +15,7 @@ html, body{
 #heading2 {
   color: #12aa95;
   font-size: 1.9rem;
+  text-align: center;
 }
 
 #heading3 {
@@ -19,12 +24,22 @@ html, body{
 }
 
 .main-content{
-  height: 49rem;
   background-color: #edfffc; /* To be removed */
   border: solid 1px #12aa95; /* To be removed */
   margin: 1rem;
   padding:1rem;
-  overflow: auto;
+}
+
+button[type="submit"]{
+  margin-top: 1rem;
+}
+
+.formFooterText{
+  text-align: center;
+}
+
+.formFooterLink{
+  color: #06BD89;
 }
 
 

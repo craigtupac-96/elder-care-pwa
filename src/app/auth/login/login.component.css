@@ -1,0 +1,10 @@
+.login-btn{
+  color: #FFFFFF;
+  background-color: #06BD89;
+  border-color: #FFFFFF;
+}
+
+#loginScreen{
+  margin-top: 8rem;
+  margin-bottom: 14rem;
+}
