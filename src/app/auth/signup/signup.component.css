@@ -1,0 +1,41 @@
+.button-label{
+  color: white;
+}
+
+label{
+  color: #12aa95;
+}
+
+input::placeholder{
+  color: #aaaaaa;
+}
+
+.content{
+  margin: 0 auto;
+  width: 45rem;
+  border: 1px solid black;
+}
+
+.form-btn {
+  color: #FFFFFF;
+  background-color: #7BDBC0;
+  border-color: #FFFFFF;
+}
+
+.form-btn:hover,
+.form-btn:focus,
+.form-btn:active,
+.form-btn.active,
+.open .dropdown-toggle.form-btn {
+  color: #FFFFFF;
+  background-color: #06BD89;
+  border-color: #FFFFFF;
+}
+
+.submit-btn{
+  color: #FFFFFF;
+  background-color: #06BD89;
+  border-color: #FFFFFF;
+}
+
+

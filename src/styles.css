@@ -13,11 +13,18 @@ html, body{
   font-size: 1.9rem;
 }
 
+#heading3 {
+  color: #12aa95;
+  font-size: 1.4rem;
+}
+
 .main-content{
   height: 49rem;
   background-color: #edfffc; /* To be removed */
   border: solid 1px #12aa95; /* To be removed */
   margin: 1rem;
+  padding:1rem;
+  overflow: auto;
 }
 
 

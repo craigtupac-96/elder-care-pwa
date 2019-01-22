@@ -6,8 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  title = 'Sign Up';
+  showPrimary = true;
+  showSecondary = false;
 
-  constructor() { }
+  showPrimaryForm() {
+    this.showPrimary = true;
+    this.showSecondary = false;
+  }
+
+  showSecondaryForm() {
+    this.showPrimary = false;
+    this.showSecondary = true;
+  }
+
+  constructor() {
+
+  }
 
   ngOnInit() {
   }
