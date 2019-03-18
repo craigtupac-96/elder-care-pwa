@@ -6,11 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./diary.component.css']
 })
 export class DiaryComponent implements OnInit {
+  // private title: string;
   title = 'Diary';
 
   constructor() { }
 
   ngOnInit() {
+    // this.
   }
 
 }

@@ -6,11 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reminders.component.css']
 })
 export class RemindersComponent implements OnInit {
+  // private title: string;
   title = 'Reminders';
 
   constructor() { }
 
   ngOnInit() {
+    // this.
   }
 
 }

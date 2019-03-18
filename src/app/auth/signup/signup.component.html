@@ -10,64 +10,31 @@
       </label>
     </div>
 
-    <form *ngIf="showPrimary">
+    <form *ngIf="showPrimary" #pri="ngForm" (ngSubmit)="onSubmit(pri)">
       <div class="form-row justify-content-center">
         <div class="form-group col-md-4 col-sm-10">
           <label>Username</label>
-          <input type="text" class="form-control" name="username" placeholder="Enter username">
+          <input type="text" class="form-control" placeholder="Enter username" ngModel name="username">
         </div>
         <div class="form-group col-md-4 col-sm-10">
           <label>Email Address</label>
-          <input type="text" class="form-control" name="username" placeholder="Enter email">
+          <input type="text" class="form-control" placeholder="Enter email" ngModel name="email" email required>
         </div>
       </div>
       <div class="form-row justify-content-center">
         <div class="form-group col-md-4 col-sm-10">
           <label>First Name</label>
-          <input type="text" class="form-control" name="username" placeholder="Enter first name">
+          <input type="text" class="form-control" placeholder="Enter first name" ngModel name="first-name">
         </div>
         <div class="form-group col-md-4 col-sm-10">
           <label>Last Name</label>
-          <input type="text" class="form-control" name="username" placeholder="Enter last name">
+          <input type="text" class="form-control" placeholder="Enter last name" ngModel name="last-name">
         </div>
       </div>
       <div class="form-row justify-content-center">
-        <div class="form-group col-md-3 col-sm-4 ">
-          <label>Date Of Birth</label>
-          <input type="text" class="form-control" name="username" placeholder="dd/mm/yyyy">
-        </div>
         <div class="form-group col-md-2 col-sm-2">
           <label>Gender</label>
           <select class="form-control">
-            <option selected>Choose...</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class="form-group col-md-3 col-sm-4">
-          <label>Phone Number</label>
-          <input type="text" class="form-control" name="username" placeholder="Enter phone number">
-        </div>
-      </div>
-      <div class="form-row justify-content-center">
-        <div class="form-group col-md-8 col-sm-10">
-          <label>Address Line 1</label>
-          <input type="text" class="form-control" name="username" placeholder="Enter address line 1">
-        </div>
-      </div>
-      <div class="form-row justify-content-center">
-        <div class="form-group col-md-8 col-sm-10">
-          <label>Address Line 2</label>
-          <input type="password" class="form-control" name="password1" placeholder="Enter address line 2">
-        </div>
-      </div>
-      <div class="form-row justify-content-center">
-        <div class="form-group col-md-4 col-sm-10">
-          <label>Town</label>
-          <input type="password" class="form-control" name="password1" placeholder="Enter town">
-        </div>
-        <div class="form-group col-md-4 col-sm-10">
-          <label>County</label>
-          <select class="form-control" placeholder="test">
             <option selected>Choose...</option>
             <option>...</option>
           </select>
@@ -76,50 +43,58 @@
       <div class="form-row justify-content-center">
         <div class="form-group col-md-4 col-sm-10">
           <label>Password</label>
-          <input type="password" class="form-control" name="password1" placeholder="Enter password">
+          <input type="password"
+                 class="form-control"
+                 placeholder="Enter password"
+                 ngModel
+                 name="password1"
+                 required
+                 minlength="8">
         </div>
         <div class="form-group col-md-4 col-sm-10">
           <label>Re-enter Password</label>
-          <input type="password" class="form-control" name="password2" placeholder="Re-enter password">
+          <input type="password"
+                 class="form-control"
+                 placeholder="Re-enter password"
+                 ngModel
+                 name="password2"
+                 required
+                 minlength="8">
         </div>
       </div>
       <div class="text-center">
-        <button type="submit" name="register" class="btn submit-btn">Sign Up</button>
+        <button type="submit" name="primary-signup" class="btn submit-btn">Sign Up</button>
       </div>
     </form>
 
-  <form *ngIf="showSecondary">
+  <form *ngIf="showSecondary" #sec="ngForm" (ngSubmit)="onSubmit(sec)">
     <div class="form-row justify-content-center">
       <div class="form-group col-md-4 col-sm-10">
         <label>Family Username</label>
-        <input type="text" class="form-control" name="familyUsername" placeholder="Enter family username">
+        <input type="text" class="form-control" placeholder="Enter family username" ngModel name="family-username">
       </div>
     </div>
     <div class="form-row justify-content-center">
       <div class="form-group col-md-4 col-sm-10">
         <label>Username</label>
-        <input type="text" class="form-control" name="username" placeholder="Enter username">
+        <input type="text" class="form-control" placeholder="Enter username" ngModel name="username">
       </div>
       <div class="form-group col-md-4 col-sm-10">
         <label>Email Address</label>
-        <input type="text" class="form-control" name="username" placeholder="Enter email">
+        <input type="text" class="form-control" placeholder="Enter email" ngModel name="email">
       </div>
     </div>
     <div class="form-row justify-content-center">
       <div class="form-group col-md-4 col-sm-10">
         <label>First Name</label>
-        <input type="text" class="form-control" name="username" placeholder="Enter first name">
+        <input type="text" class="form-control" placeholder="Enter first name" ngModel name="first-name">
       </div>
       <div class="form-group col-md-4 col-sm-10">
         <label>Last Name</label>
-        <input type="text" class="form-control" name="username" placeholder="Enter last name">
+        <input type="text" class="form-control" placeholder="Enter last name" ngModel name="last-name">
       </div>
     </div>
     <div class="form-row justify-content-center">
-      <div class="form-group col-md-3 col-sm-4">
-        <label>Date Of Birth</label>
-        <input type="text" class="form-control" name="username" placeholder="dd/mm/yyyy">
-      </div>
       <div class="form-group col-md-2 col-sm-2">
         <label>Gender</label>
         <select class="form-control">
@@ -135,15 +110,15 @@
     <div class="form-row justify-content-center">
       <div class="form-group col-md-4 col-sm-10">
         <label>Password</label>
-        <input type="password" class="form-control" name="password1" placeholder="Enter password">
+        <input type="password" class="form-control" placeholder="Enter password" ngModel name="password1">
       </div>
       <div class="form-group col-md-4 col-sm-10">
         <label>Re-enter Password</label>
-        <input type="password" class="form-control" name="password2" placeholder="Re-enter password">
+        <input type="password" class="form-control" placeholder="Re-enter password" ngModel name="password2">
       </div>
     </div>
     <div class="text-center">
-      <button type="submit" name="register" class="btn submit-btn">Sign Up</button>
+      <button type="submit" name="secondary-signup" class="btn submit-btn">Sign Up</button>
     </div>
   </form>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -6,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  // private title: string;
   title = 'Login';
+
+  onSubmit(form: NgForm) {
+    console.log(form);
+  }
 
   constructor() { }
 
   ngOnInit() {
+    // this.
   }
 
 }

@@ -1,6 +1,7 @@
 .navbar{
   background-color: #12aa95;
   font-family: 'Julius Sans One', sans-serif;
+  box-shadow: 2px 2px 8px 1px grey;
 }
 
 .navbar li a{

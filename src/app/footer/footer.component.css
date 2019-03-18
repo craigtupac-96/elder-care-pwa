@@ -1,6 +1,7 @@
 .footer {
   background-color: #333;
   padding: 2rem 0 1rem 0;
+  box-shadow: 2px -2px 8px 1px grey;
 }
 
 .left-col{

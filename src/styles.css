@@ -25,9 +25,9 @@ form{
 
 .main-content{
   background-color: #edfffc; /* To be removed */
-  border: solid 1px #12aa95; /* To be removed */
   margin: 1rem;
   padding:1rem;
+  box-shadow: 2px 2px 8px 1px grey;
 }
 
 button[type="submit"]{
