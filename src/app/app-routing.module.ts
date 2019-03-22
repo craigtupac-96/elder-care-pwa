@@ -7,18 +7,20 @@ import { LoginComponent } from './auth/login/login.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { DiaryComponent } from './diary/diary.component';
 import { RemindersComponent } from './reminders/reminders.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'appointments', component: AppointmentsComponent },
-  { path: 'diary', component: DiaryComponent },
-  { path: 'reminders', component: RemindersComponent }
+  { path: 'appointments', component: AppointmentsComponent, canActivate: [AuthGuard] },
+  { path: 'diary', component: DiaryComponent, canActivate: [AuthGuard] },
+  { path: 'reminders', component: RemindersComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard] // normally done in app.module.ts but guards are ok to do here
 })
 export class AppRoutingModule { }

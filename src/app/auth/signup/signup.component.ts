@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,6 +15,7 @@ export class SignupComponent implements OnInit {
   showSecondary = false;
   showPrimary = true;
 
+  constructor(private authService: AuthService) { }
 
   showPrimaryForm() {
     this.showPrimary = true;
@@ -26,17 +28,13 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form);
-  }
-
-  constructor() {
-
+    this.authService.registerUser({
+      email: form.value.email,
+      password: form.value.password
+    });
   }
 
   ngOnInit() {
-    /*this.title = 'Sign Up';
-    this.showPrimary = true;
-    this.showSecondary = false;*/
   }
 
 }

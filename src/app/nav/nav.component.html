@@ -6,23 +6,26 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/">Home</a> <!-- remove later or change to dashboard -->
+      <li class="nav-item" *ngIf="isAuth">
+        <a class="nav-link" routerLink="/">Dashboard</a> <!-- remove later or change to dashboard -->
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isAuth">
         <a class="nav-link" routerLink="/appointments">Appointments & Events</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isAuth">
         <a class="nav-link" routerLink="/diary">Diary</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isAuth">
         <a class="nav-link" routerLink="/reminders">Reminders</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/signup">Test-Signup</a> <!-- remove later -->
+      <li class="nav-item" *ngIf="!isAuth">
+        <a class="nav-link" routerLink="/signup">Sign up</a> <!-- remove later -->
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Test-Login</a> <!-- remove later -->
+      <li class="nav-item" *ngIf="!isAuth">
+        <a class="nav-link" routerLink="/login">Login</a> <!-- remove later -->
+      </li>
+      <li class="nav-item" *ngIf="isAuth">
+        <a class="nav-link" (click)="onLogout()">Logout</a> <!-- remove later -->
       </li>
     </ul>
   </div>
