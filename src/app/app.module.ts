@@ -18,6 +18,7 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { DiaryComponent } from './diary/diary.component';
 import { RemindersComponent } from './reminders/reminders.component';
 import { AuthService } from './auth/auth.service';
+import { DetailsComponent } from './auth/details/details.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthService } from './auth/auth.service';
     LoginComponent,
     AppointmentsComponent,
     DiaryComponent,
-    RemindersComponent
+    RemindersComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

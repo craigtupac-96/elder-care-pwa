@@ -6,5 +6,9 @@ export interface Roles {
 export interface User {
   uid: string;
   email: string;
-  roles: Roles;
+  username?: string;
+  firstName?: string;
+  lastName?: string;
+  detailsComplete?: boolean;
+  // roles: Roles;
 }

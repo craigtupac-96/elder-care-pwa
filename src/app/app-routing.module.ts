@@ -8,11 +8,13 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { DiaryComponent } from './diary/diary.component';
 import { RemindersComponent } from './reminders/reminders.component';
 import { AuthGuard } from './auth/auth.guard';
+import {DetailsComponent} from './auth/details/details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'details', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'appointments', component: AppointmentsComponent, canActivate: [AuthGuard] },
   { path: 'diary', component: DiaryComponent, canActivate: [AuthGuard] },
   { path: 'reminders', component: RemindersComponent, canActivate: [AuthGuard] }

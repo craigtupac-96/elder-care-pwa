@@ -1,34 +1,152 @@
 <div class="main-content container" id="signupScreen">
     <h2 class="headings" id="heading2">{{ title }}</h2>
 
-    <div class="btn-group btn-group-toggle container" data-toggle="buttons">
+    <!--<div class="btn-group btn-group-toggle container" data-toggle="buttons">
       <label class="btn form-btn button-label active" (click)="showPrimaryForm()">
         <input type="radio" autocomplete="off" > Primary Account
       </label>
       <label class="btn form-btn button-label" (click)="showSecondaryForm()">
         <input type="radio" autocomplete="off"> Care Assistant Account
       </label>
-    </div>
+    </div>-->
 
-    <form *ngIf="showPrimary" #pri="ngForm" (ngSubmit)="onSubmit(pri)">
+  <!--<ng-container *ngIf="(authS.user | async) || {} as user">
+
+    <form [formGroup]="signupForm" ngIf="!user.uid">
+
+
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-4 col-sm-10">
+          <label>Email Address</label>
+          <input type="text" class="form-control" placeholder="Enter email" formControlName="email">
+        </div>
+      </div>
+
+      <div ngIf="email.invalid && email.dirty">
+        Email address is incorrect!
+      </div>
+
+
+      <div class="form-row justify-content-center">
+
+        <div class="form-group col-md-4 col-sm-10">
+          <label>Password</label>
+          <input type="password"
+                 class="form-control"
+                 placeholder="Enter password"
+                 formControlName="password">
+        </div>
+        <div class="form-group col-md-4 col-sm-10">
+          <label>Re-enter Password</label>
+          <input type="password"
+                 class="form-control"
+                 placeholder="Re-enter password"
+                 formControlName="password2">
+        </div>
+
+      </div>
+
+      <div *ngIf="password.invalid && password.touched">
+        Password must be greater than 8 characters and contain a number.
+      </div>
+
+      <div *ngIf="signupForm.valid">
+        All good in the hood!
+      </div>
+
+      <div class="text-center">
+        <button type="submit" name="primary-signup" class="btn submit-btn" [disabled]="!signupForm.valid">Sign Up</button>
+      </div>
+
+    </form>
+
+
+
+
+    <form [formGroup]="detailForm" ngIf="!user.uid && !user.firstName">
+
+    </form>
+
+    <p ngIf="user.firstName">
+      You are logged in and have a name!
+    </p>
+
+  </ng-container>-->
+
+  <!--<ng-container *ngIf="(authS.user | async) || {} as user">-->
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> <!--*ngIf="!isUid()"-->
+
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-4 col-sm-10">
+          <label>Email</label>
+          <input type="email" class="form-control" placeholder="Enter email" formControlName="email">
+        </div>
+      </div>
+
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-4 col-sm-10">
+          <label>Password</label>
+          <input type="password"
+                 class="form-control"
+                 placeholder="Enter password"
+                 formControlName="password"
+                 required
+                 minlength="8">
+        </div>
+        <div class="form-group col-md-4 col-sm-10">
+          <label>Re-enter Password</label>
+          <input type="password"
+                 class="form-control"
+                 placeholder="Re-enter password"
+                 name="password2"
+                 required
+                 minlength="8">
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" name="primary-signup" class="btn submit-btn" >Sign Up</button>
+      </div>
+
+    </form>
+
+    <!--<form [formGroup]="detailForm" *ngIf="isUid()" (ngSubmit)="setDetails(user)">
+
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-4 col-sm-10">
+          <label>First Name</label>
+          <input type="text" class="form-control" placeholder="Enter first name" formControlName="firstName">
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" name="primary-signup" class="btn submit-btn">Sign Up</button>
+      </div>
+
+    </form>-->
+
+  <!--</ng-container>-->
+
+<!--  <form [formGroup]="signupForm" *ngIf="showPrimary && !user.uid" (ngSubmit)="onSubmit()">
       <div class="form-row justify-content-center">
         <div class="form-group col-md-4 col-sm-10">
           <label>Username</label>
-          <input type="text" class="form-control" placeholder="Enter username" ngModel name="username">
+          <input type="text" class="form-control" placeholder="Enter username" name="username">
         </div>
         <div class="form-group col-md-4 col-sm-10">
           <label>Email Address</label>
-          <input type="text" class="form-control" placeholder="Enter email" ngModel name="email" email required>
+          <input type="text" class="form-control" placeholder="Enter email" formControlName="email" email required>
         </div>
       </div>
       <div class="form-row justify-content-center">
         <div class="form-group col-md-4 col-sm-10">
           <label>First Name</label>
-          <input type="text" class="form-control" placeholder="Enter first name" ngModel name="first-name">
+          <input type="text" class="form-control" placeholder="Enter first name" formControlName="firstName">
         </div>
         <div class="form-group col-md-4 col-sm-10">
           <label>Last Name</label>
-          <input type="text" class="form-control" placeholder="Enter last name" ngModel name="last-name">
+          <input type="text" class="form-control" placeholder="Enter last name" name="lastName">
         </div>
       </div>
       <div class="form-row justify-content-center">
@@ -46,8 +164,7 @@
           <input type="password"
                  class="form-control"
                  placeholder="Enter password"
-                 ngModel
-                 name="password"
+                 formControlName="password"
                  required
                  minlength="8">
         </div>
@@ -56,7 +173,6 @@
           <input type="password"
                  class="form-control"
                  placeholder="Re-enter password"
-                 ngModel
                  name="password2"
                  required
                  minlength="8">
@@ -67,7 +183,7 @@
       </div>
     </form>
 
-  <form *ngIf="showSecondary" #sec="ngForm" (ngSubmit)="onSubmit(sec)">
+    <form *ngIf="showSecondary" #sec="ngForm" (ngSubmit)="onSubmit(sec)">
     <div class="form-row justify-content-center">
       <div class="form-group col-md-4 col-sm-10">
         <label>Family Username</label>
@@ -120,7 +236,7 @@
     <div class="text-center">
       <button type="submit" name="secondary-signup" class="btn submit-btn">Sign Up</button>
     </div>
-  </form>
+  </form>-->
 
   <hr>
 

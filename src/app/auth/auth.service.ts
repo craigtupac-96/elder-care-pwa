@@ -4,25 +4,28 @@ import { Subject } from 'rxjs/Subject';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AuthData } from './auth-data.model';
-import {Observable} from 'rxjs';
-
+import { Observable, of } from 'rxjs';
+import { User} from './user.model';
+import { switchMap, first } from 'rxjs/operators';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class AuthService {
   authChange = new Subject<boolean>();
   private isAuthenticated = false;
-/*  user$: Observable<User>;*/
+  user: Observable<User>;
 
   constructor(private router: Router, private aFireAuth: AngularFireAuth, private aFirestore: AngularFirestore) {
     // get auth data || null
-/*    this.user$ = this.aFireAuth.authState
-      .switchMap(user => {
+    // does this do anything??
+    this.user = this.aFireAuth.authState.pipe(
+      switchMap(user => {
         if (user) {
-          return this.aFirestore.doc('users/${user.uid}').valueChanges();
+          return this.aFirestore.doc('users/' + user.uid).valueChanges();
         } else {
-          return Observable.of(null);
+          return of(null);
         }
-      });*/
+      }));
   }
 
   registerUser(authData: AuthData) {
@@ -31,10 +34,22 @@ export class AuthService {
       .then(result => {
         console.log(result);
         this.authSuccess();
+        // return this.createUser(result.user);
+        return this.setInitialUserDoc(result.user);
       })
       .catch(error => {
         console.log(error);
       });
+  }
+
+  private setInitialUserDoc(user) {
+    const userRef: AngularFirestoreDocument<User> = this.aFirestore.doc('users/' + user.uid);
+    const data: User = {
+      uid: user.uid,
+      email: user.email,
+      detailsComplete: false
+    };
+    return userRef.set(data);
   }
 
   login(authData: AuthData) {
@@ -42,7 +57,6 @@ export class AuthService {
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
         console.log(result);
-/*        this.updateUserData(result.user);*/
         this.authSuccess();
       })
       .catch(error => {
@@ -50,22 +64,10 @@ export class AuthService {
       });
   }
 
-/*  private updateUserData(user) {
-    const userRef: AngularFirestoreDocument<any> = this.aFirestore.doc('users/$user.uid}');
-    const data: user = {
-      uid: user.uid,
-      email: user.email,
-      roles: {
-        primary: true
-      }
-    };
-    return userRef.set(data, {merge: true});
-  }*/
-
   logout() {
     this.authChange.next(false);
     this.router.navigate(['/login']);
-    this.isAuthenticated = true;
+    this.isAuthenticated = false;
   }
 
   isAuth() {
@@ -76,5 +78,15 @@ export class AuthService {
     this.isAuthenticated = true;
     this.authChange.next(true);
     this.router.navigate(['/']);
+  }
+
+  // might use this in a bit
+  getUser(userId) {
+    return this.aFirestore.firestore.collection('users').where('uid', '==', userId)
+      .get().then(querySnap => {
+      querySnap.forEach(function (doc) {
+        console.log(doc.data());
+      });
+    });
   }
 }
