@@ -1,14 +1,15 @@
-export interface Roles {
-  primary?: boolean;
-  assistant?: boolean;
+export interface Role {
+  type: string;
 }
 
 export interface User {
   uid: string;
   email: string;
+  primaryEmail?: string;
   username?: string;
   firstName?: string;
   lastName?: string;
+  phoneNumber?: string;
   detailsComplete?: boolean;
-  // roles: Roles;
+  roles?: Role;
 }

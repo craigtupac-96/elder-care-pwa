@@ -9,6 +9,7 @@ import { User} from './user.model';
 import { switchMap, first } from 'rxjs/operators';
 import * as firebase from 'firebase';
 
+// angular form select
 @Injectable()
 export class AuthService {
   authChange = new Subject<boolean>();
@@ -34,7 +35,6 @@ export class AuthService {
       .then(result => {
         console.log(result);
         this.authSuccess();
-        // return this.createUser(result.user);
         return this.setInitialUserDoc(result.user);
       })
       .catch(error => {
@@ -42,12 +42,13 @@ export class AuthService {
       });
   }
 
+  // the initial user document is set with the uid and email stored in firebase authentication
   private setInitialUserDoc(user) {
     const userRef: AngularFirestoreDocument<User> = this.aFirestore.doc('users/' + user.uid);
     const data: User = {
       uid: user.uid,
       email: user.email,
-      detailsComplete: false
+      detailsComplete: false // detailsComplete set to false to force redirection to the details form
     };
     return userRef.set(data);
   }

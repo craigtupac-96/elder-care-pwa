@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormControl, Validators, NgForm, FormBuilder, ReactiveFormsModule} from '@angular/forms';
+import {FormGroup, Validators, FormBuilder} from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import {User} from '../user.model';
 
 @Component({
   selector: 'app-signup',
@@ -33,9 +32,9 @@ export class SignupComponent implements OnInit {
       ]
     });
   }
+
   get email() { return this.signupForm.get('email'); }
   get password() { return this.signupForm.get('password'); }
-  /*get firstName() { return this.signupForm.get('firstName'); }*/
 
 /*  showPrimaryForm() {
     this.showPrimary = true;
@@ -51,35 +50,10 @@ export class SignupComponent implements OnInit {
       email: this.email.value,
       password: this.password.value,
     });
-    // this.authS.updateUser( { firstName: this.firstName.value});
   }
-
-  // https://angularfirebase.com/lessons/multi-step-signup-firebase-email-password-auth-angular-reactive-forms/
-  // https://www.youtube.com/watch?v=KpfJCEvpS9g
-/*  setDetails(user) {
-    console.log('->->->' + this.firstName.value); // test
-    return this.authS.updateUser(user, {
-      firstName: this.firstName.value
-      // detailsComplete: true
-    });
-  }*/
 
   onSubmit() {
     this.signUp();
-    /*this.setDetails();*/
-    /*  this.authS.registerUser({
-        email: form.value.email,
-        password: form.value.password,
-      });
-      this.setDetails(this.aFireAuth.user);
-    }*/
   }
 
-  /*isUid() {
-    if (this.authS.isAuth()) {
-      return true;
-    } else {
-      return false;
-    }
-  }*/
 }
