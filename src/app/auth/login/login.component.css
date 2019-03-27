@@ -8,3 +8,11 @@
   margin-top: 8rem;
   margin-bottom: 14rem;
 }
+
+label{
+  color: #12aa95;
+}
+
+input::placeholder{
+  color: #aaaaaa;
+}

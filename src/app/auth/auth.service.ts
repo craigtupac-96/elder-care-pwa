@@ -6,15 +6,16 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { AuthData } from './auth-data.model';
 import { Observable, of } from 'rxjs';
 import { User} from './user.model';
-import { switchMap, first } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import * as firebase from 'firebase';
 
-// angular form select
+// https://bigcodenerd.org/enforce-cloud-firestore-unique-field-values/
 @Injectable()
 export class AuthService {
   authChange = new Subject<boolean>();
   private isAuthenticated = false;
   user: Observable<User>;
+  db = firebase.firestore();
 
   constructor(private router: Router, private aFireAuth: AngularFireAuth, private aFirestore: AngularFirestore) {
     // get auth data || null
@@ -35,6 +36,7 @@ export class AuthService {
       .then(result => {
         console.log(result);
         this.authSuccess();
+        this.addToEmailList(result.user);
         return this.setInitialUserDoc(result.user);
       })
       .catch(error => {
@@ -52,6 +54,11 @@ export class AuthService {
     };
     return userRef.set(data);
   }
+
+  private addToEmailList(user) {
+    const data = {emailAddress: user.email};
+    return this.db.collection('allEmails').add(data);
+}
 
   login(authData: AuthData) {
     this.aFireAuth.auth
