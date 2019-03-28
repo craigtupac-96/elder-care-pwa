@@ -27,7 +27,7 @@ export class AuthGuard implements CanActivate {
       tap(loggedIn => {
         if (!loggedIn) {
           // If not logged in redirect to login screen
-          this.router.navigate(['/login']);
+          return this.router.navigate(['/login']);
         } else {
           this.userId = firebase.auth().currentUser.uid;
           this.aFirestore.firestore.collection('users').where('uid', '==', this.userId)
@@ -40,10 +40,10 @@ export class AuthGuard implements CanActivate {
             // using then to wait until the above query completes and then carrying out checks via if statements
             if (!this.authS.isAuth()) {
               // user is not authenticated, redirect to login
-              this.router.navigate(['/login']);
+              return this.router.navigate(['/login']);
             } else if (!this.myBool) {
               // details are not set, redirect to details screen
-              this.router.navigate(['/details']);
+              return this.router.navigate(['/details']);
             }
           }
         );

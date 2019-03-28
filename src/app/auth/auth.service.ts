@@ -5,11 +5,14 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AuthData } from './auth-data.model';
 import { Observable, of } from 'rxjs';
-import { User} from './user.model';
+import { User } from './user.model';
+import { FullEmailList } from './lists.model';
 import { switchMap } from 'rxjs/operators';
 import * as firebase from 'firebase';
 
 // https://bigcodenerd.org/enforce-cloud-firestore-unique-field-values/
+// email exists??
+// https://stackblitz.com/edit/angular-firestore-check-if-value-exist
 @Injectable()
 export class AuthService {
   authChange = new Subject<boolean>();
@@ -35,9 +38,9 @@ export class AuthService {
       .createUserWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
         console.log(result);
-        this.authSuccess();
+        this.setInitialUserDoc(result.user);
         this.addToEmailList(result.user);
-        return this.setInitialUserDoc(result.user);
+        this.authSuccess();
       })
       .catch(error => {
         console.log(error);
@@ -47,18 +50,22 @@ export class AuthService {
   // the initial user document is set with the uid and email stored in firebase authentication
   private setInitialUserDoc(user) {
     const userRef: AngularFirestoreDocument<User> = this.aFirestore.doc('users/' + user.uid);
+    // ****** interface set email list as <Email> ??????
     const data: User = {
       uid: user.uid,
       email: user.email,
       detailsComplete: false // detailsComplete set to false to force redirection to the details form
     };
-    return userRef.set(data);
+    userRef.set(data);
   }
 
   private addToEmailList(user) {
-    const data = {emailAddress: user.email};
-    return this.db.collection('allEmails').add(data);
-}
+    const emailListRef: AngularFirestoreDocument<FullEmailList> = this.aFirestore.doc('fullEmailList/' + user.email);
+    const data: FullEmailList = {
+      email: user.email
+    };
+    emailListRef.set(data);
+  }
 
   login(authData: AuthData) {
     this.aFireAuth.auth
@@ -73,9 +80,9 @@ export class AuthService {
   }
 
   logout() {
+    this.isAuthenticated = false;
     this.authChange.next(false);
     this.router.navigate(['/login']);
-    this.isAuthenticated = false;
   }
 
   isAuth() {
@@ -88,7 +95,7 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-  // might use this in a bit
+/*  // might use this in a bit
   getUser(userId) {
     return this.aFirestore.firestore.collection('users').where('uid', '==', userId)
       .get().then(querySnap => {
@@ -96,5 +103,5 @@ export class AuthService {
         console.log(doc.data());
       });
     });
-  }
+  }*/
 }
