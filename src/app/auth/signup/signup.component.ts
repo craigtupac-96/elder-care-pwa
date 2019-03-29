@@ -11,8 +11,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class SignupComponent implements OnInit {
   title = 'Sign Up';
   signupForm: FormGroup;
-/*  showSecondary = false;
-  showPrimary = true;*/
 
   constructor(private authS: AuthService, private aFireAuth: AngularFireAuth, public fb: FormBuilder) {
   }
@@ -36,15 +34,6 @@ export class SignupComponent implements OnInit {
   get email() { return this.signupForm.get('email'); }
   get password() { return this.signupForm.get('password'); }
 
-/*  showPrimaryForm() {
-    this.showPrimary = true;
-    this.showSecondary = false;
-  }
-
-  showSecondaryForm() {
-    this.showPrimary = false;
-    this.showSecondary = true;
-  }*/
   signUp() {
     return this.authS.registerUser({
       email: this.email.value,

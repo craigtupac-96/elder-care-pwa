@@ -10,19 +10,16 @@ import { FullEmailList } from './lists.model';
 import { switchMap } from 'rxjs/operators';
 import * as firebase from 'firebase';
 
-// https://bigcodenerd.org/enforce-cloud-firestore-unique-field-values/
-// email exists??
+// https://bigcodenerd.org/enforce-cloud-firestore-unique-field-values
 // https://stackblitz.com/edit/angular-firestore-check-if-value-exist
 @Injectable()
 export class AuthService {
   authChange = new Subject<boolean>();
   private isAuthenticated = false;
   user: Observable<User>;
-  db = firebase.firestore();
 
   constructor(private router: Router, private aFireAuth: AngularFireAuth, private aFirestore: AngularFirestore) {
     // get auth data || null
-    // does this do anything??
     this.user = this.aFireAuth.authState.pipe(
       switchMap(user => {
         if (user) {

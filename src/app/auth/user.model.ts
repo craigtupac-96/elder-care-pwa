@@ -1,4 +1,4 @@
-import {AssistantList} from './lists.model';
+import {AssistantRecord} from './lists.model';
 
 export interface Role {
   type: string;
@@ -14,6 +14,6 @@ export interface User {
   phoneNumber?: string;
   detailsComplete?: boolean;
   roles?: Role;
-  assistantList?: AssistantList;
+  assistantRecords?: AssistantRecord[]; // must be array
   // if primary email exists add assistant contact details to primary user account
 }
