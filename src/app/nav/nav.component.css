@@ -27,3 +27,21 @@ a {
   color: #aaa;
   font-weight: 200;
 }
+
+.dropdown-toggle{
+  border: 1px solid white;
+  border-radius: .2rem;
+}
+
+.dropdown-menu{
+  background-color: #edfffc;
+}
+
+#dropName a {
+  color: #12aa95;
+}
+
+#dropName a:hover {
+  background-color: #12aa95;
+  color: white;
+}

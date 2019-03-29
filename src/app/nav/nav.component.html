@@ -24,8 +24,16 @@
       <li class="nav-item" *ngIf="!isAuth">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
-      <li class="nav-item" *ngIf="isAuth">
-        <a class="nav-link" (click)="onLogout()">Logout</a>
+      <li class="nav-item dropdown" *ngIf="isAuth">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+           aria-expanded="false">{{displayName}}</a>
+        <div class="dropdown-menu" id="dropName">
+          <a class="dropdown-item" routerLink="/">Update Details</a>
+          <a class="dropdown-item" routerLink="/emergency-contacts">Emergency Contacts</a>
+          <a class="dropdown-item" routerLink="/">Another One??</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="onLogout()">Logout</a>
+        </div>
       </li>
     </ul>
   </div>

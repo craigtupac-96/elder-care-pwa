@@ -19,6 +19,7 @@ import { DiaryComponent } from './diary/diary.component';
 import { RemindersComponent } from './reminders/reminders.component';
 import { AuthService } from './auth/auth.service';
 import { DetailsComponent } from './auth/details/details.component';
+import { EmergencyContactsComponent } from './emergency-contacts/emergency-contacts.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DetailsComponent } from './auth/details/details.component';
     AppointmentsComponent,
     DiaryComponent,
     RemindersComponent,
-    DetailsComponent
+    DetailsComponent,
+    EmergencyContactsComponent
   ],
   imports: [
     BrowserModule,
