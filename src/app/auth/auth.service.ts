@@ -8,10 +8,7 @@ import { Observable, of } from 'rxjs';
 import { User } from './user.model';
 import { FullEmailList } from './lists.model';
 import { switchMap } from 'rxjs/operators';
-import * as firebase from 'firebase';
 
-// https://bigcodenerd.org/enforce-cloud-firestore-unique-field-values
-// https://stackblitz.com/edit/angular-firestore-check-if-value-exist
 @Injectable()
 export class AuthService {
   authChange = new Subject<boolean>();

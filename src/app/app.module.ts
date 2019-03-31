@@ -20,6 +20,7 @@ import { RemindersComponent } from './reminders/reminders.component';
 import { AuthService } from './auth/auth.service';
 import { DetailsComponent } from './auth/details/details.component';
 import { EmergencyContactsComponent } from './emergency-contacts/emergency-contacts.component';
+import { UpdateDetailsComponent } from './update-details/update-details.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { EmergencyContactsComponent } from './emergency-contacts/emergency-conta
     DiaryComponent,
     RemindersComponent,
     DetailsComponent,
-    EmergencyContactsComponent
+    EmergencyContactsComponent,
+    UpdateDetailsComponent
   ],
   imports: [
     BrowserModule,

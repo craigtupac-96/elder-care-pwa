@@ -10,8 +10,8 @@
       <div class="col-6 middle-col">
         Elder-Care &copy; 2019
       </div>
-      <div class="col right-col">
-        <a routerLink="/">Emergency Contacts</a>
+      <div class="col right-col" *ngIf="checkAuth()">
+        <a id="footerLink" routerLink="/emergency-contacts">Emergency Contacts</a>
       </div>
     </div>
     <div class="row"></div>

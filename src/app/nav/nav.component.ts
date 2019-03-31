@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Subscription } from 'rxjs/Subscription';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 
 @Component({
@@ -33,7 +33,7 @@ export class NavComponent implements OnInit, OnDestroy {
             this.displayName = doc.data().firstName + ' ' + doc.data().lastName;
           });
         }).then( event => {
-          console.log('Do something here?');
+          // may do something here
         });
       }
     });

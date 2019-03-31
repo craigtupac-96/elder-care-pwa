@@ -9,7 +9,8 @@ import { DiaryComponent } from './diary/diary.component';
 import { RemindersComponent } from './reminders/reminders.component';
 import { EmergencyContactsComponent } from './emergency-contacts/emergency-contacts.component';
 import { AuthGuard } from './auth/auth.guard';
-import {DetailsComponent} from './auth/details/details.component';
+import { DetailsComponent } from './auth/details/details.component';
+import { UpdateDetailsComponent } from './update-details/update-details.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'appointments', component: AppointmentsComponent, canActivate: [AuthGuard] },
   { path: 'diary', component: DiaryComponent, canActivate: [AuthGuard] },
   { path: 'reminders', component: RemindersComponent, canActivate: [AuthGuard] },
-  { path: 'emergency-contacts', component: EmergencyContactsComponent, canActivate: [AuthGuard] }
+  { path: 'emergency-contacts', component: EmergencyContactsComponent, canActivate: [AuthGuard] },
+  { path: 'update-details', component: UpdateDetailsComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

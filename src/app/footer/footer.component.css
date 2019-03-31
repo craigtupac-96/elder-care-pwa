@@ -24,3 +24,13 @@
   text-align: right;
   color: #12aa95;
 }
+
+#footerLink{
+  text-align: right;
+  color: #12aa95;
+  text-decoration: none;
+}
+
+#footerLink:hover{
+  color: white;
+}
