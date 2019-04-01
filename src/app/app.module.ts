@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule} from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { AuthService } from './auth/auth.service';
 import { DetailsComponent } from './auth/details/details.component';
 import { EmergencyContactsComponent } from './emergency-contacts/emergency-contacts.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
+import { ToDoComponent } from './to-do/to-do.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { UpdateDetailsComponent } from './update-details/update-details.componen
     RemindersComponent,
     DetailsComponent,
     EmergencyContactsComponent,
-    UpdateDetailsComponent
+    UpdateDetailsComponent,
+    ToDoComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { UpdateDetailsComponent } from './update-details/update-details.componen
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
