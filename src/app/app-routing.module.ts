@@ -11,6 +11,7 @@ import { EmergencyContactsComponent } from './emergency-contacts/emergency-conta
 import { AuthGuard } from './auth/auth.guard';
 import { DetailsComponent } from './auth/details/details.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
+import { MedicationComponent } from './medication/medication.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'diary', component: DiaryComponent, canActivate: [AuthGuard] },
   { path: 'reminders', component: RemindersComponent, canActivate: [AuthGuard] },
   { path: 'emergency-contacts', component: EmergencyContactsComponent, canActivate: [AuthGuard] },
-  { path: 'update-details', component: UpdateDetailsComponent, canActivate: [AuthGuard] }
+  { path: 'update-details', component: UpdateDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'medication', component: MedicationComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

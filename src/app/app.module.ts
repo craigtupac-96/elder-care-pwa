@@ -23,6 +23,7 @@ import { DetailsComponent } from './auth/details/details.component';
 import { EmergencyContactsComponent } from './emergency-contacts/emergency-contacts.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { ToDoComponent } from './to-do/to-do.component';
+import { MedicationComponent } from './medication/medication.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ToDoComponent } from './to-do/to-do.component';
     DetailsComponent,
     EmergencyContactsComponent,
     UpdateDetailsComponent,
-    ToDoComponent
+    ToDoComponent,
+    MedicationComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import * as firebase from 'firebase';
 export class HomeComponent implements OnInit {
   title = 'Dashboard';
   userId: string;
+  accountType: string;
 
   constructor(public auth: AuthService, private aFirestore: AngularFirestore) {
     this.userId = firebase.auth().currentUser.uid;
@@ -18,11 +19,20 @@ export class HomeComponent implements OnInit {
       .get().then(querySnap => {
         querySnap.forEach((doc) => {
           this.title = doc.data().firstName + "'s Dashboard";
+          this.accountType = doc.data().role;
         });
     });
   }
 
   ngOnInit() {
+  }
+
+  isPrimary() {
+    if (this.accountType === 'Primary') {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
