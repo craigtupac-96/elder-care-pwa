@@ -1,1 +1,12 @@
+.main-content{
+  background-color: unset;
+  margin: 1rem 0rem 3rem 1rem;
+  padding: 0;
+  box-shadow: none;
+}
 
+#heading2 {
+  color: #12aa95;
+  font-size: 1.9rem;
+  text-align: center;
+}
