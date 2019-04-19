@@ -16,7 +16,6 @@ export class AuthService {
   user: Observable<User>;
 
   constructor(private router: Router, private aFireAuth: AngularFireAuth, private aFirestore: AngularFirestore) {
-    // get auth data || null
     this.user = this.aFireAuth.authState.pipe(
       switchMap(user => {
         if (user) {
@@ -44,7 +43,6 @@ export class AuthService {
   // the initial user document is set with the uid and email stored in firebase authentication
   private setInitialUserDoc(user) {
     const userRef: AngularFirestoreDocument<User> = this.aFirestore.doc('users/' + user.uid);
-    // ****** interface set email list as <Email> ??????
     const data: User = {
       uid: user.uid,
       email: user.email,
@@ -89,13 +87,4 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-/*  // might use this in a bit
-  getUser(userId) {
-    return this.aFirestore.firestore.collection('users').where('uid', '==', userId)
-      .get().then(querySnap => {
-      querySnap.forEach(function (doc) {
-        console.log(doc.data());
-      });
-    });
-  }*/
 }

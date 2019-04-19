@@ -2,30 +2,57 @@
     <h2 class="headings" id="heading2">{{ title }}</h2>
     <hr>
 
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="signupForm" (ngSubmit)="signupForm.valid && onSubmit()">
 
       <div class="form-row justify-content-center">
-        <div class="form-group col-md-4 col-sm-10">
+        <div class="form-group col-md-4 col-sm-10" [ngClass]="{'has-error': signupForm.get('email').errors &&
+        (signupForm.get('email').touched || signupForm.get('email').dirty)}">
           <label>Email</label>
           <input type="email" class="form-control" placeholder="Enter email" formControlName="email">
         </div>
       </div>
 
       <div class="form-row justify-content-center">
-        <div class="form-group col-md-4 col-sm-10">
-          <label>Password</label>
-          <input type="password" class="form-control" placeholder="Enter password" formControlName="password">
-        </div>
+          <div class="form-group col-md-4 col-sm-10">
+            <span class="alert alert-danger" *ngIf="signupForm.get('email').errors &&
+            (signupForm.get('email').touched || signupForm.get('email').dirty)">
+              <span *ngIf="signupForm.get('email').errors.required">
+                Email is required
+              </span>
+              <span *ngIf="signupForm.get('email').errors.email">
+                Must be a valid email address
+              </span>
+            </span>
+          </div>
       </div>
+
+
+
       <div class="form-row justify-content-center">
         <div class="form-group col-md-4 col-sm-10">
-          <label>Re-enter Password</label>
-          <input type="password" class="form-control" placeholder="Re-enter password" name="password2">
+          <label>Password</label>
+          <input type="password" name="password" class="form-control" placeholder="Enter password" formControlName="password" required
+                 [ngClass]="{'has-error': signupForm.get('password').errors &&
+        (signupForm.get('password').touched || signupForm.get('password').dirty)}">
+        </div>
+      </div>
+
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-7 col-sm-10">
+            <span class="alert alert-danger" *ngIf="signupForm.get('password').errors &&
+            (signupForm.get('password').touched || signupForm.get('password').dirty)">
+              <span *ngIf="signupForm.get('password').errors.required">
+                Password is required
+              </span>
+              <span *ngIf="signupForm.get('password').errors.pattern">
+                Must be at least 8 characters long, contain 1 uppercase letter & 1 number
+              </span>
+            </span>
         </div>
       </div>
 
       <div class="text-center">
-        <button type="submit" class="btn submit-btn" >Sign Up</button>
+        <button type="submit" class="btn submit-btn">Sign Up</button>
       </div>
 
     </form>

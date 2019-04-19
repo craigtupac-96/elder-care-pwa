@@ -14,6 +14,5 @@ export interface User {
   phoneNumber?: string;
   detailsComplete?: boolean;
   roles?: Role;
-  assistantRecords?: AssistantRecord[]; // must be array
-  // if primary email exists add assistant contact details to primary user account
+  assistantRecords?: AssistantRecord[];
 }

@@ -17,13 +17,15 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { DiaryComponent } from './diary/diary.component';
-import { RemindersComponent } from './reminders/reminders.component';
 import { AuthService } from './auth/auth.service';
 import { DetailsComponent } from './auth/details/details.component';
 import { EmergencyContactsComponent } from './emergency-contacts/emergency-contacts.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { ToDoComponent } from './to-do/to-do.component';
 import { MedicationComponent } from './medication/medication.component';
+import { DashAppointmentsComponent } from './dash-appointments/dash-appointments.component';
+import { DashDiaryEntryComponent } from './dash-diary-entry/dash-diary-entry.component';
+import { DashGroupDiaryEntryComponent } from './dash-group-diary-entry/dash-group-diary-entry.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +37,14 @@ import { MedicationComponent } from './medication/medication.component';
     LoginComponent,
     AppointmentsComponent,
     DiaryComponent,
-    RemindersComponent,
     DetailsComponent,
     EmergencyContactsComponent,
     UpdateDetailsComponent,
     ToDoComponent,
-    MedicationComponent
+    MedicationComponent,
+    DashAppointmentsComponent,
+    DashDiaryEntryComponent,
+    DashGroupDiaryEntryComponent,
   ],
   imports: [
     BrowserModule,

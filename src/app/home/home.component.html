@@ -1,5 +1,11 @@
 <div class="main-content container">
   <h2 class="headings" id="heading2">{{ title }}</h2>
+  <div class="dash-wrap">
+    <app-dash-appointments></app-dash-appointments>
   <!--Only show this component if the user is primary-->
   <app-to-do *ngIf="isPrimary()"></app-to-do>
+  <app-dash-diary-entry *ngIf="isPrimary()"></app-dash-diary-entry>
+  <app-dash-group-diary-entry *ngIf="!isPrimary()"></app-dash-group-diary-entry>
+  </div>
+
 </div>

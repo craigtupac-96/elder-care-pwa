@@ -1,4 +1,122 @@
 <div class="main-content">
   <h2 class="headings" id="heading2">{{ title }}</h2>
   <hr>
+
+  <div class="text-right">
+    <button type="button" class="btn add-btn" *ngIf="selected == 'appointmentsHome'" (click)="selected='addApp'">
+      Add Appointment/Event</button>
+  </div>
+
+  <form [formGroup]="addAppForm" (ngSubmit)="addAppointment()" *ngIf="selected == 'addApp'">
+    <p class="text-center">Required fields are indicated with a *</p>
+    <div class="form-row justify-content-center">
+      <div class="form-group col-md-4 col-sm-10">
+        <label>Title*</label>
+        <input type="text" class="form-control" placeholder="Enter title" formControlName="appTitle">
+      </div>
+      <div class="form-group col-md-3 col-sm-6">
+        <label>Date*</label>
+        <input type="date" class="form-control" placeholder="" formControlName="date">
+      </div>
+      <div class="form-group col-md-1 col-sm-3">
+        <label>Time (24hr)</label>
+        <input type="time" class="form-control" placeholder="" formControlName="time">
+      </div>
+    </div>
+    <div class="form-row justify-content-center">
+      <div class="form-group col-md-4 col-sm-10">
+        <label>Description</label>
+        <input type="text" class="form-control" placeholder="Enter description" formControlName="description">
+      </div>
+      <div class="form-group col-md-4 col-sm-10">
+        <label>Location</label>
+        <input type="text" class="form-control" placeholder="Enter location" formControlName="location">
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn submit-btn">Submit</button>
+    </div>
+  </form>
+
+  <form [formGroup]="updateAppForm" (ngSubmit)="updateAppointment()" *ngIf="selected == 'update'">
+    <p class="text-center">Only enter the fields you wish to change</p>
+    <div class="form-row justify-content-center">
+      <div class="form-group col-md-4 col-sm-10">
+        <label>Title</label>
+        <input type="text" class="form-control" formControlName="uAppTitle">
+      </div>
+      <div class="form-group col-md-3 col-sm-6">
+        <label>Date</label>
+        <input type="date" class="form-control" formControlName="uDate">
+      </div>
+      <div class="form-group col-md-1 col-sm-3">
+        <label>Time (24hr)</label>
+        <input type="time" class="form-control" formControlName="uTime">
+      </div>
+    </div>
+    <div class="form-row justify-content-center">
+      <div class="form-group col-md-4 col-sm-10">
+        <label>Description</label>
+        <input type="text" class="form-control" formControlName="uDescription">
+      </div>
+      <div class="form-group col-md-4 col-sm-10">
+        <label>Location</label>
+        <input type="text" class="form-control" formControlName="uLocation">
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn submit-btn">Submit</button>
+    </div>
+  </form>
+
+  <div class="text-center" *ngIf="selected == 'appointmentsHome'">
+    <div class="btn-group flex-wrap" role="group" aria-label="Months">
+      <button type="button" class="btn btn-month" (click)="changeMonth(1)">Jan</button>
+      <button type="button" class="btn btn-month" (click)="changeMonth(2)">Feb</button>
+      <button type="button" class="btn btn-month" (click)="changeMonth(3)">Mar</button>
+      <button type="button" class="btn btn-month" (click)="changeMonth(4)">Apr</button>
+      <button type="button" class="btn btn-month" (click)="changeMonth(5)">May</button>
+      <button type="button" class="btn btn-month" (click)="changeMonth(6)">Jun</button>
+      <button type="button" class="btn btn-month" (click)="changeMonth(7)">Jul</button>
+      <button type="button" class="btn btn-month" (click)="changeMonth(8)">Aug</button>
+      <button type="button" class="btn btn-month" (click)="changeMonth(9)">Sep</button>
+      <button type="button" class="btn btn-month" (click)="changeMonth(10)">Oct</button>
+      <button type="button" class="btn btn-month" (click)="changeMonth(11)">Nov</button>
+      <button type="button" class="btn btn-month" (click)="changeMonth(12)">Dec</button>
+      <button type="button" class="btn btn-month" (click)="changeMonth(13)">All</button>
+    </div>
+    <h3>{{monthTitle}}</h3>
+  </div>
+
+  <div class="appointment-wrap" *ngIf="selected == 'appointmentsHome'">
+    <div class="appointment" *ngFor="let a of monthSelection">
+      <div class ="appointmentHead">
+        {{a.dateOnly | date:'fullDate'}}
+      </div>
+      <table class="table appointmentBody">
+        <tr>
+          <td class="title" colspan="2">{{a.title}}</td>
+        </tr>
+        <tr>
+          <td>Time:</td>
+          <td>{{a.timeOnly}}</td>
+        </tr>
+        <tr>
+          <td>Desc:</td>
+          <td>{{a.description}}</td>
+        </tr>
+        <tr>
+          <td>Location</td>
+          <td>{{a.location}}</td>
+        </tr>
+        <tr class="appointmentFoot">
+          <td align="center"><i class="far fa-edit" (click)="showUpdate(a)"></i></td>
+          <td align="center"><i class="far fa-times-circle" (click)="deleteAppointment(a)"></i></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+
 </div>

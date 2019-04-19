@@ -1,0 +1,137 @@
+.appointment-wrap {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.appointment {
+  width: 17rem;
+  background-color: white;
+  margin: 1rem;
+  box-shadow: 2px 2px 8px 1px grey;
+}
+
+.appointment:hover {
+  box-shadow: none;
+}
+
+.appointmentHead {
+  padding: 1rem;
+  color: white;
+  background-color: #333;
+}
+
+.appointmentHead:hover {
+  background-color: #5a5a5a;
+}
+
+.table {
+  background-color: #cbfff0;
+  padding: 1rem;
+}
+
+.title {
+  padding: 1rem;
+  color: #09aa95;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    width: 96%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .appointment {
+    width: 100%;
+    margin-left: 0;
+  }
+  .appointment-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+label{
+  color: #12aa95;
+}
+
+input::placeholder{
+  color: #aaaaaa;
+}
+
+
+.submit-btn{
+  color: #FFFFFF;
+  background-color: #06BD89;
+  border-color: #FFFFFF;
+}
+
+.add-btn {
+  color: #FFFFFF;
+  background-color: #12aa95;
+  border-color: #FFFFFF;
+}
+
+.add-btn:hover {
+  color: #FFFFFF;
+  background-color: #13b7a0;
+  border-color: #FFFFFF;
+}
+
+.text-center{
+  color: #db5655;
+  margin-bottom: 1rem;
+}
+
+input[type="date"]::-webkit-clear-button, input[type="time"]::-webkit-clear-button {
+  display: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: #12aa95;
+}
+
+input[type="date"]-webkit-datetime-edit-text {
+  color: #aaaaaa;
+}
+
+input[type=date], input[type=time] {
+  color: #aaaaaa;
+}
+
+.btn-month {
+  color: white;
+  background-color: #333;
+  border-color: #FFFFFF;
+  margin-top: 1.5rem;
+}
+
+.btn-month:hover {
+  background-color: #525252;
+}
+
+.btn-group {
+  margin: 0 auto;
+}
+
+h3 {
+  margin-top: 2rem;
+  color: black;
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 1.6rem;
+}
+
+.appointmentFoot {
+  background-color: white;
+  margin: 0;
+}
+
+.far {
+  cursor: pointer;
+}

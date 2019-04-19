@@ -2,6 +2,10 @@
   color: white;
 }
 
+.is-invalid {
+  color: red;
+}
+
 label{
   color: #12aa95;
 }
@@ -34,7 +38,7 @@ input::placeholder{
 
 #signupScreen{
   margin-top: 8rem;
-  margin-bottom: 8rem;
+  margin-bottom: 12rem;
 }
 
 

@@ -1,5 +1,7 @@
 html, body{
   background-color: #333;
+  margin: 0;
+  padding: 0;
 }
 
 form{
@@ -26,8 +28,14 @@ form{
 .main-content{
   background-color: #edfffc;
   margin: 1rem;
-  padding:1rem;
+  padding:2rem;
   box-shadow: 2px 2px 8px 1px grey;
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    width: 95%;
+  }
 }
 
 button[type="submit"]{

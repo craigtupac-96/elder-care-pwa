@@ -20,7 +20,7 @@ export class FooterComponent implements OnInit {
     }
   }
 
-  private checkAuth() {
+  checkAuth() {
     if (this.authS.isAuth()) {
       return true;
     } else {

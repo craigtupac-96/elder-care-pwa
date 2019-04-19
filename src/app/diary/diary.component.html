@@ -1,4 +1,83 @@
 <div class="main-content">
   <h2 class="headings" id="heading2">{{ title }}</h2>
   <hr>
+
+  <div class="text-right">
+    <button type="button" class="btn submit-btn" *ngIf="selected == 'diaryHome'" (click)="showCreate()">
+      Create Diary Entry</button>
+  </div>
+
+  <div *ngIf="selected == 'diaryHome'">
+    <div class="entry"  *ngFor="let d of diary">
+      <div class="entryHead">
+        {{d.startDate.toDate() | date:"fullDate"}}
+      </div>
+      <div class="entryBody">
+        <p id="entryBody">{{d.entry}}</p>
+      </div>
+      <div class="entryFoot">
+        <div class="d-flex">
+          <div class="mr-auto p-2"><p id="entryFoot">Last Edit: <b>{{d.lastEdit.toDate() | date:"medium"}}</b></p></div>
+          <div class="p-2"><i class="far fa-edit" (click)="showEdit(d)"></i></div>
+          <div class="p-2"><i class="far fa-trash-alt" (click)="deleteEntry(d)"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="diaryCreateForm" (ngSubmit)="diaryEntry()" *ngIf="selected == 'diaryCreate'">
+
+    <label>Diary Entry</label>
+    <div class="input-group">
+        <textarea class="form-control textArea" aria-label="With textarea" rows="5" formControlName="textArea">
+
+        </textarea>
+    </div>
+    <div class="text-right">
+      <button type="submit" class="btn submit-btn">Add Entry</button>
+    </div>
+
+  </form>
+
+  <form [formGroup]="diaryEditForm" (ngSubmit)="diaryEdit()" *ngIf="selected == 'editEntry'">
+
+    <label>Edit Entry</label>
+    <div class="input-group">
+      <textarea class="form-control textArea" aria-label="With textarea" rows="5" formControlName="editTextArea">
+
+      </textarea>
+    </div>
+    <div class="text-right">
+      <button type="submit" class="btn submit-btn">Submit Changes</button>
+    </div>
+
+  </form>
+
+  <div class="text-right">
+    <button type="button" class="btn submit-btn" *ngIf="selected == 'groupDiaryHome'" (click)="showCreate()">
+      Create Diary Entry</button>
+  </div>
+
+  <div *ngIf="selected == 'groupDiaryHome'">
+    <div class="entry"  *ngFor="let gd of groupDiary">
+      <div class="entryHead">
+        <div class="d-flex">
+          <div class="mr-auto p-2">{{gd.startDate.toDate() | date:"fullDate"}}</div>
+          <div id="displayName" class="p-2">{{gd.displayName}}</div>
+        </div>
+
+      </div>
+      <div class="entryBody">
+        <p id="groupEntryBody">{{gd.entry}}</p>
+      </div>
+      <div class="entryFoot">
+        <div class="d-flex">
+          <div class="mr-auto p-2"><p id="groupEntryFoot">Last Edit: <b>{{gd.lastEdit.toDate() | date:"medium"}}</b></p></div>
+          <div class="p-2" *ngIf="canEdit(gd.displayName)"><i class="far fa-edit" (click)="showEdit(gd)"></i></div>
+          <div class="p-2" *ngIf="canEdit(gd.displayName)"><i class="far fa-trash-alt" (click)="deleteEntry(gd)"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

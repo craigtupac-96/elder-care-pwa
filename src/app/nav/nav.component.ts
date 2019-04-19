@@ -8,7 +8,7 @@ import * as firebase from 'firebase';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+  styleUrls: ['./nav.component.css'],
 })
 export class NavComponent implements OnInit, OnDestroy {
   // private title: string;
@@ -17,9 +17,11 @@ export class NavComponent implements OnInit, OnDestroy {
   authSubscription: Subscription;
   userId: string;
   displayName: string;
+  // accountType: string;
 
   constructor(private authS: AuthService,  private aFireAuth: AngularFireAuth,
-              private aFirestore: AngularFirestore) { }
+  private aFirestore: AngularFirestore) {
+  }
 
   ngOnInit() {
     this.authSubscription = this.authS.authChange.subscribe(authStatus => {
@@ -31,9 +33,11 @@ export class NavComponent implements OnInit, OnDestroy {
           .get().then(querySnap => {
           querySnap.forEach( (doc) => {
             this.displayName = doc.data().firstName + ' ' + doc.data().lastName;
+            if (this.displayName === 'undefined undefined') {
+              this.displayName = 'More';
+            }
           });
         }).then( event => {
-          // may do something here
         });
       }
     });

@@ -6,7 +6,6 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { DiaryComponent } from './diary/diary.component';
-import { RemindersComponent } from './reminders/reminders.component';
 import { EmergencyContactsComponent } from './emergency-contacts/emergency-contacts.component';
 import { AuthGuard } from './auth/auth.guard';
 import { DetailsComponent } from './auth/details/details.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
   { path: 'details', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'appointments', component: AppointmentsComponent, canActivate: [AuthGuard] },
   { path: 'diary', component: DiaryComponent, canActivate: [AuthGuard] },
-  { path: 'reminders', component: RemindersComponent, canActivate: [AuthGuard] },
   { path: 'emergency-contacts', component: EmergencyContactsComponent, canActivate: [AuthGuard] },
   { path: 'update-details', component: UpdateDetailsComponent, canActivate: [AuthGuard] },
   { path: 'medication', component: MedicationComponent, canActivate: [AuthGuard] }
